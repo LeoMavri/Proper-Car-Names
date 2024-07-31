@@ -1,0 +1,21 @@
+{
+  "name": "proper-car-names",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@types/jquery": "^3.5.30",
+    "typescript": "^5.5.4",
+    "vite": "^5.3.5",
+    "vite-plugin-monkey": "^4.0.6"
+  },
+  "dependencies": {
+    "@types/xhook": "^1.5.3",
+    "xhook": "^1.6.2"
+  }
+}
