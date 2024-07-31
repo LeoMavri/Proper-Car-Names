@@ -1,4 +1,4 @@
-import { build, defineConfig } from "vite";
+import { defineConfig } from "vite";
 import monkey from "vite-plugin-monkey";
 
 // https://vitejs.dev/config/
@@ -13,6 +13,10 @@ export default defineConfig({
         author: "mavri [2402357]",
         namespace: "diicot",
         match: ["www.torn.com/loader.php?sid=racing"],
+        updateURL:
+          "https://github.com/LeoMavri/Proper-Car-Names/raw/main/dist/proper-car-names.user.js",
+        downloadURL:
+          "https://github.com/LeoMavri/Proper-Car-Names/raw/main/dist/proper-car-names.user.js",
       },
     }),
   ],
