@@ -6,10 +6,20 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "lint": "eslint . --cache",
+    "lint:fix": "eslint . --fix --cache",
+    "format": "prettier --check .",
+    "format:fix": "prettier --write ."
   },
   "devDependencies": {
     "@types/jquery": "^3.5.30",
+    "@typescript-eslint/eslint-plugin": "^8.0.1",
+    "@typescript-eslint/parser": "^8.0.1",
+    "eslint": "9.8.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-unicorn": "^55.0.0",
+    "prettier": "^3.3.3",
     "typescript": "^5.5.4",
     "vite": "^5.3.5",
     "vite-plugin-monkey": "^4.0.6"
