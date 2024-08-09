@@ -37,6 +37,32 @@ async function undoNames(): Promise<void> {
   });
 }
 
+async function undoChangeCarTooltip(): Promise<void> {
+  const element = await waitForElement('.msg.right-round', 10_000);
+
+  if (!element) {
+    console.warn('Failed to find car change element');
+    return;
+  }
+
+  const text = element?.textContent?.trim();
+
+  if (!text) {
+    console.warn('Failed to find text for car change');
+    return;
+  }
+
+  const match = text.match(/You selected your (.+) for this race/);
+
+  if (!match) {
+    console.warn('Failed to match text for car change');
+    return;
+  }
+
+  const ogName = newToOld[match[1].trim()] || match[1];
+  element.textContent = `You selected your ${ogName} for this race`;
+}
+
 async function undoUpgrades(): Promise<void> {
   const el = await waitForElement('.msg.right-round b');
 
@@ -54,6 +80,8 @@ xhook.after((req, _res) => {
 
   if (!url.includes('racing')) return;
 
+  console.debug(url);
+
   if (url.includes('&tab=parts&section=addParts')) {
     undoUpgrades();
     return;
@@ -63,6 +91,10 @@ xhook.after((req, _res) => {
     undoNames();
     undoTooltips();
     return;
+  }
+
+  if (url.includes('sid=racing&tab=cars&section=changeRacingCar')) {
+    undoChangeCarTooltip();
   }
 
   undoNames();
